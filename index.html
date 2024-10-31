@@ -117,18 +117,18 @@
           class="map"
         ></iframe>
 
-        <form action="">
+        <form action="" name="pratama-contact-form">
           <div class="input-group">
             <i data-feather="user"></i>
-            <input type="text" placeholder="nama" />
+            <input type="text" placeholder="nama" name="nama" />
+          </div>
+          <div class="input-group">
+            <i data-feather="at-sign"></i>
+            <input type="email" placeholder="email" name="email" />
           </div>
           <div class="input-group">
             <i data-feather="mail"></i>
-            <input type="text" placeholder="email" />
-          </div>
-          <div class="input-group">
-            <i data-feather="phone"></i>
-            <input type="text" placeholder="no hp" />
+            <input type="text" placeholder="pesan" name="pesan" />
           </div>
           <button type="submit" class="btn">kirim pesan</button>
         </form>
@@ -140,8 +140,8 @@
     <!-- Footer start -->
     <footer>
       <div class="social">
-        <a href="#"><i data-feather="instagram"></i></a>
-        <a href="#"><i data-feather="facebook"></i></a>
+        <a href="https://www.instagram.com/justtamaa_"><i data-feather="instagram"></i></a>
+        <a href="https://www.facebook.com/oci.ganteng/"><i data-feather="facebook"></i></a>
       </div>
 
       <div class="links">
@@ -152,7 +152,7 @@
       </div>
 
       <div class="credit">
-        <p>Created by <a href="">muhammadrossipratama</a>. | &copy; 2024</p>
+        <p>Created by <a href="https://github.com/tamaacuek">muhammadrossipratama</a>. | &copy; 2024</p>
       </div>
     </footer>
     <!-- Footer end -->
@@ -164,5 +164,18 @@
 
     <!-- My Javascript -->
     <script src="js/script.js"></script>
+
+    <!-- My Spreadsheet -->
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbz2qgsDT005UfFGwfrUzzmF-tHpCUeqR-2bE9Fc5AavP5zIQ0uC2C88RFNppXpMVoYucA/exec'
+      const form = document.forms['pratama-contact-form']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => console.log('Success!', response))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
   </body>
 </html>
